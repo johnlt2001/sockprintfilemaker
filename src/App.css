@@ -1,0 +1,290 @@
+@font-face {
+  font-family: "Deutschlander";
+  src: url("./fonts/deutschlander-webfont.woff2") format("woff2"),
+    url("./fonts/deutschlander-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Deutschlander", Arial, sans-serif; /* Use the custom font */
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.full-width-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(
+    --background-color
+  ); /* Use the CSS variable for background color */
+  display: flex;
+  flex-direction: column; /* Ensure header is at the top */
+  align-items: center; /* Center content vertically */
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: var(--background-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.column {
+  padding: 0px;
+  margin: 0 20px; /* Increase horizontal margin for larger gap */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.column-1 {
+  width: 400px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-1 .do-not {
+  font-size: 340px;
+  margin: 0 0 -70px 5px;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -3px;
+}
+
+.column-1 .disturb {
+  font-size: 270px;
+  margin: -40px 0 0 0; /* Added top margin */
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.column-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column-2 h2 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: var(--name-font-size);
+  line-height: 1; /* Consistent line height */
+  padding-bottom: 1px; /* Ensure a 10px gap below the name */
+  display: flex;
+  align-items: center; /* Center text vertically within the fixed height */
+}
+
+.column-2 .watching {
+  font-size: 250px;
+  letter-spacing: 0px;
+  margin-top: -100px; /* Negative margin to bring it closer to "JOHNS" */
+  margin-bottom: -90px; /* Negative margin to bring "CITY" closer */
+}
+
+.column-2 .team {
+  font-size: 300px;
+  letter-spacing: 0px;
+  margin-top: -20px; /* Negative margin to bring it closer to "WATCHING" */
+}
+
+.red-box {
+  background-color: red;
+  width: 100%;
+  height: 60px;
+  margin: 20px 0;
+}
+
+/* Add this class to stack columns */
+.stacked {
+  flex-direction: column;
+}
+
+:root {
+  --name-font-size: 24px; /* Define the font size variable */
+  --font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Remove tooltip styles */
+
+.column-1,
+.column-2 {
+  border: none; /* Remove any border visibility */
+}
+
+.design {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.multi-colored-text {
+  background: linear-gradient(
+    to bottom,
+    #fbea02 40%,
+    white 40%,
+    white 60%,
+    #0280bc 60%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.multi-colored-rectangle {
+  background: linear-gradient(
+    to right,
+    #fbea02 33%,
+    white 33%,
+    white 66%,
+    #0280bc 66%
+  );
+}
+
+.form-sliders-column {
+  font-family: Arial, sans-serif; /* Change to a default font */
+  font-size: 1.2em; /* Increase font size */
+}
+
+.form-sliders-column label,
+.form-sliders-column input,
+.form-sliders-column button {
+  font-family: inherit; /* Inherit the font from the parent */
+  font-size: inherit; /* Inherit the font size from the parent */
+  margin-bottom: 10px; /* Add some spacing for better readability */
+}
+
+/* App.css */
+
+.app-header {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 20px 0;
+  background-color: #646cff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-family: var(--font-family); /* Use the same font as the form */
+}
+
+/* Form.css */
+
+.styled-form {
+  background-color: transparent; /* Set background to transparent */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: var(--font-family); /* Use the same font as the header */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Border for inputs and select */
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: transparent; /* Make background transparent */
+  color: #f0f0f0; /* Set text color to a shade of white */
+}
+
+.form-slider {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.form-button {
+  background-color: #646cff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--font-family); /* Ensure font matches the form */
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #535bf2;
+}
