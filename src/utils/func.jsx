@@ -32,6 +32,7 @@ export const useAppLogic = () => {
     "SOUTHAMPTON",
     "UNITED",
     "VILLA",
+    "WEDNESDAY", // Added Wednesday
   ];
 
   const teamColors = {
@@ -51,6 +52,7 @@ export const useAppLogic = () => {
     SOUTHAMPTON: "#d71920",
     UNITED: "#DA291C",
     VILLA: "#670e36",
+    WEDNESDAY: "#0033A0", // Updated color for Wednesday
   };
 
   const villaBorderColor = "#95bfe5";

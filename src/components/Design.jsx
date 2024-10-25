@@ -11,12 +11,14 @@ const Design = ({ designRef, selectedTeam, teamColors, villaBorderColor, getCelt
         }`}
         style={{
           backgroundColor:
-            selectedTeam !== "LEEDS" && selectedTeam !== "CELTIC"
+            selectedTeam !== "LEEDS" && selectedTeam !== "CELTIC" && selectedTeam !== "WEDNESDAY"
               ? teamColors[selectedTeam]
               : undefined,
           backgroundImage:
             selectedTeam === "CELTIC"
               ? "repeating-linear-gradient(90deg, #018749, #018749 70px, #FFFFFF 70px, #FFFFFF 140px)"
+              : selectedTeam === "WEDNESDAY"
+              ? "repeating-linear-gradient(90deg, #0033A0, #0033A0 12.5%, #FFFFFF 12.5%, #FFFFFF 25%)"
               : undefined,
           border:
             selectedTeam === "VILLA"
