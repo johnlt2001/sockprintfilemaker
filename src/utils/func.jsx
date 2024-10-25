@@ -175,7 +175,7 @@ export const useAppLogic = () => {
       const fileName = `${name}-${selectedTeam}-sock-print-file.png`;
 
       domtoimage
-        .toPng(designRef.current, { scale: 2 })
+        .toPng(designRef.current, { scale: 1 })
         .then((dataUrl) => {
           const link = document.createElement("a");
           link.download = fileName;
