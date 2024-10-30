@@ -27,12 +27,13 @@ export const useAppLogic = () => {
     "LEICESTER",
     "LIVERPOOL",
     "LUTON",
+    "MIDDLESBROUGH",
     "PALACE",
     "RANGERS",
     "SOUTHAMPTON",
     "UNITED",
     "VILLA",
-    "WEDNESDAY", // Added Wednesday
+    "WEDNESDAY",
   ];
 
   const teamColors = {
@@ -47,12 +48,13 @@ export const useAppLogic = () => {
     LEICESTER: "#003090",
     LIVERPOOL: "#c8102E",
     LUTON: "#F78F1E",
+    MIDDLESBROUGH: "#DE1B22",
     PALACE: "#1B458F",
     RANGERS: "#1B458F",
     SOUTHAMPTON: "#d71920",
     UNITED: "#DA291C",
     VILLA: "#670e36",
-    WEDNESDAY: "#0033A0", // Updated color for Wednesday
+    WEDNESDAY: "#0033A0",
   };
 
   const villaBorderColor = "#95bfe5";
