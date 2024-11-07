@@ -7,11 +7,11 @@ const Design = ({ designRef, selectedTeam, teamColors, villaBorderColor, getCelt
       <h2 className="do-not" style={{ color: '#FFFFFF' }}>DO NOT</h2>
       <div
         className={`red-box ${
-          selectedTeam === "LEEDS" ? "multi-colored-rectangle" : ""
+          selectedTeam === "LEEDS" || selectedTeam === "RHINOS" ? "multi-colored-rectangle" : ""
         }`}
         style={{
           backgroundColor:
-            selectedTeam !== "LEEDS" && selectedTeam !== "CELTIC" && selectedTeam !== "WEDNESDAY"
+            selectedTeam !== "LEEDS" && selectedTeam !== "RHINOS" && selectedTeam !== "CELTIC" && selectedTeam !== "WEDNESDAY"
               ? teamColors[selectedTeam]
               : undefined,
           backgroundImage:
@@ -42,7 +42,7 @@ const Design = ({ designRef, selectedTeam, teamColors, villaBorderColor, getCelt
       <h2 className="watching" style={{ color: '#FFFFFF' }}>WATCHING</h2>
       <h2
         className={`team ${
-          selectedTeam === "LEEDS" ? "multi-colored-text" : ""
+          selectedTeam === "LEEDS" || selectedTeam === "RHINOS" ? "multi-colored-text" : ""
         }`}
         style={{
           paddingTop: `${teamGap}px`,

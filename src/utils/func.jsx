@@ -33,11 +33,13 @@ export const useAppLogic = () => {
     "PALACE",
     "PLYMOUTH",
     "RANGERS",
+    "RHINOS",
     "SOUTHAMPTON",
     "SUNDERLAND",
     "UNITED",
     "VILLA",
     "WEDNESDAY",
+    "WEST BROM",
     "WOLVES",
   ];
 
@@ -59,11 +61,13 @@ export const useAppLogic = () => {
     PALACE: "#1B458F",
     PLYMOUTH: "#1A401D",
     RANGERS: "#1B458F",
+    RHINOS: "#DA291C",
     SOUTHAMPTON: "#d71920",
     SUNDERLAND: "#FD1220",
     UNITED: "#DA291C",
     VILLA: "#670e36",
     WEDNESDAY: "#0033A0",
+    "WEST BROM": "#122F67",
     WOLVES: "#FDB913",
   };
 
@@ -184,7 +188,7 @@ export const useAppLogic = () => {
 
   const saveAsPng = (designRef, name, selectedTeam) => {
     if (designRef.current) {
-      const fileName = `${name}-${selectedTeam}-sock-print-file.png`;
+      const fileName = `${name}-${selectedTeam.replace(" ", "_")}-sock-print-file.png`;
 
       domtoimage
         .toPng(designRef.current, { scale: 1 })
