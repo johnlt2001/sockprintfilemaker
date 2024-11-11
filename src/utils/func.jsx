@@ -17,6 +17,7 @@ export const useAppLogic = () => {
 
   const teams = [
     "ARSENAL",
+    "BORO",
     "BRENTFORD",
     "BURNLEY",
     "CELTIC",
@@ -28,7 +29,6 @@ export const useAppLogic = () => {
     "LEICESTER",
     "LIVERPOOL",
     "LUTON",
-    "MIDDLESBROUGH",
     "MILLWALL",
     "PALACE",
     "PLYMOUTH",
@@ -45,6 +45,7 @@ export const useAppLogic = () => {
 
   const teamColors = {
     ARSENAL: "#EF0107",
+    BORO: "#DE1B22",
     BRENTFORD: "#D20000",
     BURNLEY: "#6C1D45",
     CELTIC: "#DA291C",
@@ -56,7 +57,6 @@ export const useAppLogic = () => {
     LEICESTER: "#003090",
     LIVERPOOL: "#c8102E",
     LUTON: "#F78F1E",
-    MIDDLESBROUGH: "#DE1B22",
     MILLWALL: "#00194A",
     PALACE: "#1B458F",
     PLYMOUTH: "#1A401D",
