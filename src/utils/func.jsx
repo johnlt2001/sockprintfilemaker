@@ -1,6 +1,7 @@
 // func.jsx
 import domtoimage from "dom-to-image-more";
 import { useState } from "react";
+import html2canvas from "html2canvas";
 
 export const useAppLogic = () => {
   const [name, setName] = useState("NAME'S");
@@ -194,10 +195,15 @@ export const useAppLogic = () => {
 
   const saveAsPng = (designRef, name, selectedTeam) => {
     if (designRef.current) {
-      const fileName = `${name}-${selectedTeam.replace(" ", "_")}-sock-print-file.png`;
+      const fileName = `${name}_${selectedTeam}.png`;
 
       domtoimage
-        .toPng(designRef.current, { scale: 1 })
+        .toPng(designRef.current, {
+          scale: 2,
+          style: {
+            transform: "scale(1)",
+          },
+        })
         .then((dataUrl) => {
           const link = document.createElement("a");
           link.download = fileName;

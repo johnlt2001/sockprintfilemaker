@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./App.css";
 import { useAppLogic } from "./utils/func";
 import Design from "./components/Design";
@@ -30,12 +30,11 @@ function App() {
   } = useAppLogic();
 
   const designRef = useRef(null);
+  const [showOutline, setShowOutline] = useState(false);
 
   return (
     <div className="full-width-container">
-      <header className="app-header">
-        Sock Print File Maker
-      </header>
+      <header className="app-header">Sock Print File Maker</header>
       <div className="inner-container">
         <Design
           designRef={designRef}
@@ -48,6 +47,7 @@ function App() {
           nameSliderValue={nameSliderValue}
           teamGap={teamGap}
           teamSliderValue={teamSliderValue}
+          showOutline={showOutline}
         />
         <div className="form-sliders-column">
           <Form
@@ -67,9 +67,13 @@ function App() {
             handleDropdownChange={handleDropdownChange}
             teams={teams}
             handleSubmit={handleSubmit}
+            setShowOutline={setShowOutline}
           />
         </div>
-        <button className="form-button" onClick={() => saveAsPng(designRef, name, selectedTeam)}>
+        <button
+          className="form-button"
+          onClick={() => saveAsPng(designRef, name, selectedTeam)}
+        >
           Save as PNG
         </button>
       </div>
