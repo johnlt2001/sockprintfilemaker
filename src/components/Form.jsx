@@ -1,6 +1,7 @@
 // Form.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Form.css"; // Import the CSS file for styling
+import PropTypes from "prop-types";
 
 const Form = ({
   inputValue,
@@ -145,6 +146,26 @@ const Form = ({
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  inputValue: PropTypes.string.isRequired,
+  setInputValue: PropTypes.func.isRequired,
+  fontSizeInput: PropTypes.string.isRequired,
+  setFontSizeInput: PropTypes.func.isRequired,
+  nameSliderValue: PropTypes.number.isRequired,
+  handleNameSliderChange: PropTypes.func.isRequired,
+  gap: PropTypes.number.isRequired,
+  handleGapChange: PropTypes.func.isRequired,
+  teamSliderValue: PropTypes.number.isRequired,
+  handleTeamSliderChange: PropTypes.func.isRequired,
+  teamGap: PropTypes.number.isRequired,
+  handleTeamGapChange: PropTypes.func.isRequired,
+  selectedTeam: PropTypes.string.isRequired,
+  handleDropdownChange: PropTypes.func.isRequired,
+  teams: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  setShowOutline: PropTypes.func.isRequired,
 };
 
 export default Form;

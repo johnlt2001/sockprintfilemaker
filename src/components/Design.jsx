@@ -1,5 +1,4 @@
 // Design.jsx
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const Design = ({
@@ -14,6 +13,7 @@ const Design = ({
   teamGap,
   teamSliderValue,
   showOutline,
+  hammersStrokeColor,
 }) => {
   return (
     <div ref={designRef} className="design">
@@ -61,7 +61,10 @@ const Design = ({
             border:
               selectedTeam === "VILLA"
                 ? `3px solid ${villaBorderColor}`
+                : selectedTeam === "HAMMERS"
+                ? `3px solid ${hammersStrokeColor}`
                 : undefined,
+            boxSizing: "border-box",
           }}
         ></div>
         <h2 className="disturb" style={{ color: "#FFFFFF" }}>
@@ -96,19 +99,39 @@ const Design = ({
             textShadow:
               selectedTeam === "VILLA"
                 ? `-3px -3px 0 ${villaBorderColor}, 3px -3px 0 ${villaBorderColor}, -3px 3px 0 ${villaBorderColor}, 3px 3px 0 ${villaBorderColor}`
+                : selectedTeam === "HAMMERS"
+                ? `-3px -3px 0 ${hammersStrokeColor}, 3px -3px 0 ${hammersStrokeColor}, -3px 3px 0 ${hammersStrokeColor}, 3px 3px 0 ${hammersStrokeColor}`
                 : undefined,
           }}
         >
-          {selectedTeam === "CELTIC"
-            ? selectedTeam.split("").map((char, index) => (
-                <span
-                  key={index}
-                  style={getCelticTextStyle(selectedTeam)[index]}
-                >
-                  {char}
-                </span>
-              ))
-            : selectedTeam}
+          {selectedTeam === "CELTIC" ? (
+            selectedTeam.split("").map((char, index) => (
+              <span key={index} style={getCelticTextStyle(selectedTeam)[index]}>
+                {char}
+              </span>
+            ))
+          ) : selectedTeam === "HAMMERS" ? (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: `${teamSliderValue * 0.4}px`,
+                  marginBottom: "-50px",
+                  marginTop: "5px",
+                }}
+              >
+                THE
+              </div>
+              <div>HAMMERS</div>
+            </div>
+          ) : (
+            selectedTeam
+          )}
         </h2>
       </div>
     </div>
@@ -130,6 +153,7 @@ Design.propTypes = {
   teamGap: PropTypes.number.isRequired,
   teamSliderValue: PropTypes.number.isRequired,
   showOutline: PropTypes.bool.isRequired,
+  hammersStrokeColor: PropTypes.string.isRequired,
 };
 
 export default Design;

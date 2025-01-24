@@ -1,12 +1,10 @@
 // func.jsx
 import domtoimage from "dom-to-image-more";
 import { useState } from "react";
-import html2canvas from "html2canvas";
 
 export const useAppLogic = () => {
   const [name, setName] = useState("NAME'S");
   const [inputValue, setInputValue] = useState("");
-  const [letterCount, setLetterCount] = useState(0);
   const [fontSize, setFontSize] = useState(24);
   const [fontSizeInput, setFontSizeInput] = useState("");
   const [gap, setGap] = useState(10);
@@ -28,6 +26,7 @@ export const useAppLogic = () => {
     "COVENTRY",
     "EVERTON",
     "FOREST",
+    "HAMMERS",
     "LEEDS",
     "LEICESTER",
     "LIVERPOOL",
@@ -59,6 +58,7 @@ export const useAppLogic = () => {
     COVENTRY: "#059DD9",
     EVERTON: "#003399",
     FOREST: "#DD0000",
+    HAMMERS: "#7A263A",
     LEEDS: "#DA291C",
     LEICESTER: "#003090",
     LIVERPOOL: "#c8102E",
@@ -79,6 +79,7 @@ export const useAppLogic = () => {
   };
 
   const villaBorderColor = "#95bfe5";
+  const hammersStrokeColor = "#1bb1e7";
 
   const getDefaultFontSize = (length) => {
     switch (length) {
@@ -110,7 +111,6 @@ export const useAppLogic = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setName(inputValue);
-    setLetterCount(inputValue.length);
     setInputValue("");
 
     const newFontSize = fontSizeInput
@@ -245,6 +245,7 @@ export const useAppLogic = () => {
     teams,
     teamColors,
     villaBorderColor,
+    hammersStrokeColor,
     getDefaultFontSize,
     handleSubmit,
     handleNameSliderChange,

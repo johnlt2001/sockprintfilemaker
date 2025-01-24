@@ -19,6 +19,7 @@ function App() {
     teams,
     teamColors,
     villaBorderColor,
+    hammersStrokeColor,
     handleSubmit,
     handleNameSliderChange,
     handleTeamSliderChange,
@@ -41,6 +42,7 @@ function App() {
           selectedTeam={selectedTeam}
           teamColors={teamColors}
           villaBorderColor={villaBorderColor}
+          hammersStrokeColor={hammersStrokeColor}
           getCelticTextStyle={getCelticTextStyle}
           name={name}
           gap={gap}
