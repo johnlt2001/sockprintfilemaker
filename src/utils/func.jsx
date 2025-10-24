@@ -16,6 +16,8 @@ export const useAppLogic = () => {
 
   const teams = [
     "ARSENAL",
+    "BLACKPOOL",
+    "BOURNEMOUTH",
     "BORO",
     "BRENTFORD",
     "BRIGHTON",
@@ -43,6 +45,7 @@ export const useAppLogic = () => {
     "SUNDERLAND",
     "UNITED",
     "VILLA",
+    "WATFORD",
     "WEDNESDAY",
     "WEST BROM",
     "WOLVES",
@@ -50,6 +53,8 @@ export const useAppLogic = () => {
 
   const teamColors = {
     ARSENAL: "#EF0107",
+    BLACKPOOL: "#F68712",
+    BOURNEMOUTH: "#DA291C",
     BORO: "#DE1B22",
     BRENTFORD: "#D20000",
     BRIGHTON: "#0057B8",
@@ -77,6 +82,7 @@ export const useAppLogic = () => {
     SUNDERLAND: "#FD1220",
     UNITED: "#DA291C",
     VILLA: "#670e36",
+    WATFORD: "#F8ED20",
     WEDNESDAY: "#0033A0",
     "WEST BROM": "#122F67",
     WOLVES: "#FDB913",
@@ -84,6 +90,7 @@ export const useAppLogic = () => {
 
   const villaBorderColor = "#95bfe5";
   const hammersStrokeColor = "#1bb1e7";
+  const watfordStrokeColor = "#EE2028";
 
   const getDefaultFontSize = (length) => {
     switch (length) {
@@ -250,6 +257,7 @@ export const useAppLogic = () => {
     teamColors,
     villaBorderColor,
     hammersStrokeColor,
+    watfordStrokeColor,
     getDefaultFontSize,
     handleSubmit,
     handleNameSliderChange,
