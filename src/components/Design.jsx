@@ -14,6 +14,7 @@ const Design = ({
   teamSliderValue,
   showOutline,
   hammersStrokeColor,
+  watfordStrokeColor,
 }) => {
   return (
     <div ref={designRef} className="design">
@@ -63,6 +64,8 @@ const Design = ({
                 ? `3px solid ${villaBorderColor}`
                 : selectedTeam === "HAMMERS"
                 ? `3px solid ${hammersStrokeColor}`
+                : selectedTeam === "WATFORD"
+                ? `3px solid ${watfordStrokeColor}`
                 : undefined,
             boxSizing: "border-box",
           }}
@@ -101,6 +104,8 @@ const Design = ({
                 ? `-3px -3px 0 ${villaBorderColor}, 3px -3px 0 ${villaBorderColor}, -3px 3px 0 ${villaBorderColor}, 3px 3px 0 ${villaBorderColor}`
                 : selectedTeam === "HAMMERS"
                 ? `-3px -3px 0 ${hammersStrokeColor}, 3px -3px 0 ${hammersStrokeColor}, -3px 3px 0 ${hammersStrokeColor}, 3px 3px 0 ${hammersStrokeColor}`
+                : selectedTeam === "WATFORD"
+                ? `-3px -3px 0 ${watfordStrokeColor}, 3px -3px 0 ${watfordStrokeColor}, -3px 3px 0 ${watfordStrokeColor}, 3px 3px 0 ${watfordStrokeColor}`
                 : undefined,
           }}
         >
@@ -154,6 +159,7 @@ Design.propTypes = {
   teamSliderValue: PropTypes.number.isRequired,
   showOutline: PropTypes.bool.isRequired,
   hammersStrokeColor: PropTypes.string.isRequired,
+  watfordStrokeColor: PropTypes.string.isRequired,
 };
 
 export default Design;

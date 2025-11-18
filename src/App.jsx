@@ -20,6 +20,7 @@ function App() {
     teamColors,
     villaBorderColor,
     hammersStrokeColor,
+    watfordStrokeColor,
     handleSubmit,
     handleNameSliderChange,
     handleTeamSliderChange,
@@ -43,6 +44,7 @@ function App() {
           teamColors={teamColors}
           villaBorderColor={villaBorderColor}
           hammersStrokeColor={hammersStrokeColor}
+          watfordStrokeColor={watfordStrokeColor}
           getCelticTextStyle={getCelticTextStyle}
           name={name}
           gap={gap}
