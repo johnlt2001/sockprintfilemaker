@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Deutschlander';
+  src: url('./fonts/deutschlander-webfont.woff2') format('woff2'),
+       url('./fonts/deutschlander-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Deutschlander', sans-serif;
+  background: #1a1a2e;
+  color: #fff;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}

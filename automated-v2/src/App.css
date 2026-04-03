@@ -1,0 +1,229 @@
+/* ── Layout ── */
+.app {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Controls Panel ── */
+.controls {
+  width: 320px;
+  min-width: 320px;
+  background: #16213e;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.controls h2 {
+  font-family: 'Deutschlander', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-family: system-ui, sans-serif;
+  color: #aaa;
+}
+
+.controls input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0f3460;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Deutschlander', sans-serif;
+  letter-spacing: 1px;
+}
+
+.controls select {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0f3460;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Deutschlander', sans-serif;
+}
+
+.controls input[type="range"] {
+  width: 100%;
+  accent-color: #e94560;
+}
+
+.controls button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #e94560;
+  color: #fff;
+  font-family: 'Deutschlander', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.controls button:hover {
+  background: #c73652;
+}
+
+.controls button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.batch-btn {
+  background: #0f3460 !important;
+  border: 1px solid #e94560 !important;
+}
+
+.batch-btn:hover {
+  background: #1a4a80 !important;
+}
+
+/* ── Preview Area ── */
+.preview-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #0f0f23;
+  overflow: auto;
+}
+
+/* ── The Design ── */
+.design-wrapper {
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  width: 1800px;
+  min-height: 900px;
+}
+
+/* Left Column */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  padding: 20px 0;
+}
+
+.do-not-text {
+  font-family: 'Deutschlander', sans-serif;
+  color: #fff;
+  font-size: 340px;
+  line-height: 0.68;
+  letter-spacing: -3px;
+}
+
+.disturb-text {
+  font-family: 'Deutschlander', sans-serif;
+  color: #fff;
+  font-size: 270px;
+  line-height: 0.68;
+  letter-spacing: -3px;
+}
+
+.color-rectangle {
+  width: 90%;
+  height: 60px;
+  margin: 20px 0;
+}
+
+/* Right Column — CRITICAL: line-height: 0.68 crops Deutschlander's invisible padding */
+.right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.right-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-text,
+.watching-text,
+.team-main-text {
+  font-family: 'Deutschlander', sans-serif;
+  line-height: 0.68;
+  white-space: nowrap;
+}
+
+.watching-text {
+  font-size: 250px;
+  color: #fff;
+}
+
+.team-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-the {
+  font-family: 'Deutschlander', sans-serif;
+  line-height: 0.68;
+  white-space: nowrap;
+}
+
+/* Multi-colored text (LEEDS, RHINOS) */
+.multi-colored-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to bottom, #fbea02 40%, white 40%, white 60%, #0280bc 60%);
+}
+
+/* Multi-colored rectangle (LEEDS, RHINOS) */
+.multi-colored-rectangle {
+  background: linear-gradient(to right, #fbea02 33%, white 33%, white 66%, #0280bc 66%) !important;
+}
+
+/* Celtic striped text */
+.celtic-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: repeating-linear-gradient(90deg, #018749, #018749 70px, #FFFFFF 70px, #FFFFFF 140px);
+}
+
+/* Wednesday striped text */
+.wednesday-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: repeating-linear-gradient(90deg, #0033A0, #0033A0 12.5%, #FFFFFF 12.5%, #FFFFFF 25%);
+}
+
+/* Teams with special borders: VILLA, HAMMERS, WATFORD */
+.special-border-rect {
+  border: 3px solid;
+}
+
+/* ── Batch progress ── */
+.batch-progress {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: #e94560;
+  text-align: center;
+}
