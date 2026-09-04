@@ -21,6 +21,7 @@ function App() {
     villaBorderColor,
     hammersStrokeColor,
     watfordStrokeColor,
+    swansBlack,
     handleSubmit,
     handleNameSliderChange,
     handleTeamSliderChange,
@@ -28,7 +29,7 @@ function App() {
     handleTeamGapChange,
     handleDropdownChange,
     saveAsPng,
-    getCelticTextStyle,
+    getStripedTextStyle,
   } = useAppLogic();
 
   const designRef = useRef(null);
@@ -45,7 +46,8 @@ function App() {
           villaBorderColor={villaBorderColor}
           hammersStrokeColor={hammersStrokeColor}
           watfordStrokeColor={watfordStrokeColor}
-          getCelticTextStyle={getCelticTextStyle}
+          swansBlack={swansBlack}
+          getStripedTextStyle={getStripedTextStyle}
           name={name}
           gap={gap}
           nameSliderValue={nameSliderValue}

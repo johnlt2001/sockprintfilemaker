@@ -6,7 +6,7 @@ const Design = ({
   selectedTeam,
   teamColors,
   villaBorderColor,
-  getCelticTextStyle,
+  getStripedTextStyle,
   name,
   gap,
   nameSliderValue,
@@ -15,6 +15,7 @@ const Design = ({
   showOutline,
   hammersStrokeColor,
   watfordStrokeColor,
+  swansBlack,
 }) => {
   return (
     <div ref={designRef} className="design">
@@ -47,15 +48,20 @@ const Design = ({
           }`}
           style={{
             backgroundColor:
-              selectedTeam !== "LEEDS" &&
-              selectedTeam !== "RHINOS" &&
-              selectedTeam !== "CELTIC" &&
-              selectedTeam !== "WEDNESDAY"
+              selectedTeam === "SWANS"
+                ? swansBlack
+                : selectedTeam !== "LEEDS" &&
+                  selectedTeam !== "RHINOS" &&
+                  selectedTeam !== "CELTIC" &&
+                  selectedTeam !== "NEWCASTLE" &&
+                  selectedTeam !== "WEDNESDAY"
                 ? teamColors[selectedTeam]
                 : undefined,
             backgroundImage:
               selectedTeam === "CELTIC"
                 ? "repeating-linear-gradient(90deg, #018749, #018749 70px, #FFFFFF 70px, #FFFFFF 140px)"
+                : selectedTeam === "NEWCASTLE"
+                ? "repeating-linear-gradient(90deg, #000000, #000000 10%, #FFFFFF 10%, #FFFFFF 20%)"
                 : selectedTeam === "WEDNESDAY"
                 ? "repeating-linear-gradient(90deg, #0033A0, #0033A0 12.5%, #FFFFFF 12.5%, #FFFFFF 25%)"
                 : undefined,
@@ -66,6 +72,8 @@ const Design = ({
                 ? `3px solid ${hammersStrokeColor}`
                 : selectedTeam === "WATFORD"
                 ? `3px solid ${watfordStrokeColor}`
+                : selectedTeam === "SWANS" || selectedTeam === "NEWCASTLE"
+                ? "3px solid #FFFFFF"
                 : undefined,
             boxSizing: "border-box",
           }}
@@ -98,7 +106,9 @@ const Design = ({
             paddingTop: `${teamGap}px`,
             fontSize: `${teamSliderValue}px`,
             color:
-              selectedTeam === "CELTIC" ? undefined : teamColors[selectedTeam],
+              selectedTeam === "CELTIC" || selectedTeam === "NEWCASTLE"
+                ? undefined
+                : teamColors[selectedTeam],
             textShadow:
               selectedTeam === "VILLA"
                 ? `-3px -3px 0 ${villaBorderColor}, 3px -3px 0 ${villaBorderColor}, -3px 3px 0 ${villaBorderColor}, 3px 3px 0 ${villaBorderColor}`
@@ -106,16 +116,18 @@ const Design = ({
                 ? `-3px -3px 0 ${hammersStrokeColor}, 3px -3px 0 ${hammersStrokeColor}, -3px 3px 0 ${hammersStrokeColor}, 3px 3px 0 ${hammersStrokeColor}`
                 : selectedTeam === "WATFORD"
                 ? `-3px -3px 0 ${watfordStrokeColor}, 3px -3px 0 ${watfordStrokeColor}, -3px 3px 0 ${watfordStrokeColor}, 3px 3px 0 ${watfordStrokeColor}`
+                : selectedTeam === "NEWCASTLE"
+                ? "-3px -3px 0 #FFFFFF, 3px -3px 0 #FFFFFF, -3px 3px 0 #FFFFFF, 3px 3px 0 #FFFFFF"
                 : undefined,
           }}
         >
-          {selectedTeam === "CELTIC" ? (
+          {selectedTeam === "CELTIC" || selectedTeam === "NEWCASTLE" ? (
             selectedTeam.split("").map((char, index) => (
-              <span key={index} style={getCelticTextStyle(selectedTeam)[index]}>
+              <span key={index} style={getStripedTextStyle(selectedTeam)[index]}>
                 {char}
               </span>
             ))
-          ) : selectedTeam === "HAMMERS" ? (
+          ) : selectedTeam === "HAMMERS" || selectedTeam === "SWANS" ? (
             <div
               style={{
                 display: "flex",
@@ -132,7 +144,7 @@ const Design = ({
               >
                 THE
               </div>
-              <div>HAMMERS</div>
+              <div>{selectedTeam}</div>
             </div>
           ) : (
             selectedTeam
@@ -151,7 +163,7 @@ Design.propTypes = {
   selectedTeam: PropTypes.string.isRequired,
   teamColors: PropTypes.objectOf(PropTypes.string).isRequired,
   villaBorderColor: PropTypes.string.isRequired,
-  getCelticTextStyle: PropTypes.func.isRequired,
+  getStripedTextStyle: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   gap: PropTypes.number.isRequired,
   nameSliderValue: PropTypes.number.isRequired,
@@ -160,6 +172,7 @@ Design.propTypes = {
   showOutline: PropTypes.bool.isRequired,
   hammersStrokeColor: PropTypes.string.isRequired,
   watfordStrokeColor: PropTypes.string.isRequired,
+  swansBlack: PropTypes.string.isRequired,
 };
 
 export default Design;

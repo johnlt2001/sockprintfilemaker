@@ -3,9 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* This design is dark-only: the artwork is white text on a dark ground, so
+     the page must not follow the visitor's light/dark preference. */
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+
+  /* Referenced by .full-width-container and .inner-container in App.css. */
+  --background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -54,15 +59,5 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* No prefers-color-scheme: light overrides — the site is dark in every
+   environment, including visitors whose OS or browser is set to light. */

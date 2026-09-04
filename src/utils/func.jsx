@@ -2,6 +2,10 @@
 import domtoimage from "dom-to-image-more";
 import { useState } from "react";
 
+// Background baked into exported PNGs. Kept in sync with `.design` in App.css
+// so the saved file matches the on-screen preview.
+const exportBackgroundColor = "#242424";
+
 export const useAppLogic = () => {
   const [name, setName] = useState("NAME'S");
   const [inputValue, setInputValue] = useState("");
@@ -35,6 +39,7 @@ export const useAppLogic = () => {
     "LIVERPOOL",
     "LUTON",
     "MILLWALL",
+    "NEWCASTLE",
     "OXFORD",
     "PALACE",
     "PLYMOUTH",
@@ -43,6 +48,7 @@ export const useAppLogic = () => {
     "SOUTHAMPTON",
     "SPURS",
     "SUNDERLAND",
+    "SWANS",
     "UNITED",
     "VILLA",
     "WATFORD",
@@ -72,6 +78,7 @@ export const useAppLogic = () => {
     LIVERPOOL: "#c8102E",
     LUTON: "#F78F1E",
     MILLWALL: "#00194A",
+    NEWCASTLE: "#000000",
     OXFORD: "#FCDC03",
     PALACE: "#1B458F",
     PLYMOUTH: "#1A401D",
@@ -80,6 +87,7 @@ export const useAppLogic = () => {
     SOUTHAMPTON: "#d71920",
     SPURS: "#132257",
     SUNDERLAND: "#FD1220",
+    SWANS: "#FFFFFF",
     UNITED: "#DA291C",
     VILLA: "#670e36",
     WATFORD: "#F8ED20",
@@ -91,6 +99,9 @@ export const useAppLogic = () => {
   const villaBorderColor = "#95bfe5";
   const hammersStrokeColor = "#1bb1e7";
   const watfordStrokeColor = "#EE2028";
+  // Swansea play in white, so the rectangle is filled black and outlined in
+  // the team's white to keep it readable.
+  const swansBlack = "#000000";
 
   const getDefaultFontSize = (length) => {
     switch (length) {
@@ -211,6 +222,9 @@ export const useAppLogic = () => {
       domtoimage
         .toPng(designRef.current, {
           scale: 2,
+          // Without an explicit background the PNG exports transparent, and
+          // the design's white text disappears against any light background.
+          bgcolor: exportBackgroundColor,
           style: {
             transform: "scale(1)",
           },
@@ -227,8 +241,14 @@ export const useAppLogic = () => {
     }
   };
 
-  const getCelticTextStyle = (text) => {
-    const colors = ["#018749", "#FFFFFF"];
+  // Teams whose name is rendered one letter at a time in alternating colours.
+  const stripedTextColors = {
+    CELTIC: ["#018749", "#FFFFFF"],
+    NEWCASTLE: ["#000000", "#FFFFFF"],
+  };
+
+  const getStripedTextStyle = (text) => {
+    const colors = stripedTextColors[text] || ["#FFFFFF"];
     return text.split("").map((char, index) => ({
       color: colors[index % colors.length],
     }));
@@ -258,6 +278,7 @@ export const useAppLogic = () => {
     villaBorderColor,
     hammersStrokeColor,
     watfordStrokeColor,
+    swansBlack,
     getDefaultFontSize,
     handleSubmit,
     handleNameSliderChange,
@@ -266,6 +287,6 @@ export const useAppLogic = () => {
     handleTeamGapChange,
     handleDropdownChange,
     saveAsPng,
-    getCelticTextStyle,
+    getStripedTextStyle,
   };
 };
