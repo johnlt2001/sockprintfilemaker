@@ -187,10 +187,9 @@ html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* Must live on .design itself: this is the node captured by domtoimage.
-     Without it the PNG exports transparent and the white text vanishes
-     against any light background. */
-  background-color: #242424;
+  /* Deliberately no background: this is the node domtoimage captures, and the
+     exported PNG must stay transparent. The dark preview behind it comes from
+     .inner-container. */
 }
 
 .multi-colored-text {

@@ -2,10 +2,6 @@
 import domtoimage from "dom-to-image-more";
 import { useState } from "react";
 
-// Background baked into exported PNGs. Kept in sync with `.design` in App.css
-// so the saved file matches the on-screen preview.
-const exportBackgroundColor = "#242424";
-
 export const useAppLogic = () => {
   const [name, setName] = useState("NAME'S");
   const [inputValue, setInputValue] = useState("");
@@ -222,9 +218,8 @@ export const useAppLogic = () => {
       domtoimage
         .toPng(designRef.current, {
           scale: 2,
-          // Without an explicit background the PNG exports transparent, and
-          // the design's white text disappears against any light background.
-          bgcolor: exportBackgroundColor,
+          // No bgcolor: the exported PNG is meant to be transparent so only
+          // the artwork prints.
           style: {
             transform: "scale(1)",
           },
