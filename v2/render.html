@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>render</title>
+    <style>
+      /* A fixed, transparent print frame. Chrome screenshots this viewport.
+         The height must clear the TALLEST layout any team/name can produce
+         (measured worst case 1678px: Bebas Neue, CITY, a 4-character name).
+         If the frame is shorter, the SVG scales down to fit and the whole
+         design -- DO NOT DISTURB included -- prints smaller for that team. */
+      html, body { margin: 0; padding: 0; background: transparent; }
+      body {
+        width: 2400px;
+        height: 1800px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      svg { max-width: 2400px; max-height: 1800px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/render.jsx"></script>
+  </body>
+</html>

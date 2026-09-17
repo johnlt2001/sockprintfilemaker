@@ -1,0 +1,16 @@
+node_modules
+dist
+*.local
+.DS_Store
+socks/
+output/
+out/
+batch/vite.log
+batch/last-run.json
+batch/last-plan.json
+batch/last-daily.json
+batch/.state.json
+batch/orders-today.json
+batch/orders-*.json
+batch/local.json
+batch/scheduled-task.generated.md
