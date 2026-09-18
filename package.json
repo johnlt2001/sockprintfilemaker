@@ -5,12 +5,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:v2": "npm --prefix v2 run dev",
+    "build:v2": "npm --prefix v2 run build",
+    "predeploy": "npm --prefix v2 install --no-audit --no-fund && npm --prefix v2 run build",
+    "deploy": "gh-pages -d v2/dist --dotfiles",
+    "deploy:legacy": "npm run build && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "dom-to-image": "^2.6.0",
