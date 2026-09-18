@@ -7,7 +7,7 @@ import { DEFAULT_FONT } from "./fonts";
 import { DEFAULT_TEAM } from "./teams";
 import { buildLayout } from "./layout";
 import { ensureFontReady } from "./measure";
-import { exportPng, exportSvg, safeFileName } from "./exportPng";
+import { exportPng, safeFileName } from "./exportPng";
 
 const INITIAL = {
   name: "",
@@ -93,14 +93,6 @@ export default function App() {
       })
     );
 
-  const handleSvg = () =>
-    run(() =>
-      exportSvg(svgRef.current, {
-        fileName: safeFileName(displayName, state.teamID, "svg"),
-        familyID: state.fontID,
-      })
-    );
-
   // Reported back so it is obvious the sizing responded to the text.
   const sizes = useMemo(() => {
     if (!layout) return null;
@@ -142,7 +134,6 @@ export default function App() {
             set={set}
             onReset={() => setState(INITIAL)}
             onExportPng={handlePng}
-            onExportSvg={handleSvg}
             busy={busy}
           />
           {sizes && (

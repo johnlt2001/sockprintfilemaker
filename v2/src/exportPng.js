@@ -104,12 +104,6 @@ export async function exportPng(svgElement, { fileName, familyID, scale = 2 }) {
   }
 }
 
-/** Vector output, for sending straight to a printer or a cutter. */
-export async function exportSvg(svgElement, { fileName, familyID }) {
-  const { clone } = await cloneWithEmbeddedFont(svgElement, familyID);
-  triggerDownload(serialise(clone), fileName);
-}
-
 export function safeFileName(name, team, extension) {
   const clean = (value) =>
     String(value || "")

@@ -23,7 +23,7 @@ function Slider({ label, value, onChange, min, max, step, format }) {
 const percent = (v) => `${Math.round(v * 100)}%`;
 const px = (v) => `${Math.round(v)}px`;
 
-export default function Controls({ state, set, onReset, onExportPng, onExportSvg, busy }) {
+export default function Controls({ state, set, onReset, onExportPng, busy }) {
   const font = FONTS.find((f) => f.id === state.fontID);
 
   return (
@@ -148,9 +148,6 @@ export default function Controls({ state, set, onReset, onExportPng, onExportSvg
       <div className="buttons">
         <button className="primary" onClick={onExportPng} disabled={busy}>
           {busy ? "Saving…" : "Save PNG"}
-        </button>
-        <button onClick={onExportSvg} disabled={busy}>
-          Save SVG
         </button>
         <button className="ghost" onClick={onReset} disabled={busy}>
           Reset

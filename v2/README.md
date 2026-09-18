@@ -71,8 +71,9 @@ system font in the exported file. The exporter embeds the `.woff2` as a
 base64 data URI inside the SVG, which both fixes that and leaves the canvas
 untainted so it can still be read back.
 
-PNG exports at 2× with a transparent background. There is also an SVG export
-(vector, font embedded) for sending straight to a printer or cutter.
+PNG exports at 2× with a transparent background. PNG is the only output —
+the press wants a raster file, and a second format was one more thing to
+pick wrong.
 
 ## Adding a team
 
@@ -105,7 +106,7 @@ across four separate conditionals are all data now:
 | `src/measure.js` | font readiness + real ink measurement |
 | `src/layout.js` | fits each line, stacks the two columns, emits positioned items |
 | `src/Design.jsx` | draws those items as one SVG |
-| `src/exportPng.js` | PNG / SVG export with the font embedded |
+| `src/exportPng.js` | PNG export with the font embedded |
 | `src/teams.js` | per-team appearance |
 | `src/fonts.js` | typeface registry |
 | `src/Controls.jsx`, `src/App.jsx` | UI |
