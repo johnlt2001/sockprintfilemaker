@@ -31,6 +31,7 @@ export const TEAMS = [
     barStripePct: 12.5,
     textStripes: ["#018749", "#FFFFFF"],
   },
+  { id: "CHARLTON", color: "#D4021D" },
   { id: "CHELSEA", color: "#034694" },
   {
     // Derby play in black and white. The name and bar stay black rather than
