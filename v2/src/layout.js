@@ -105,9 +105,18 @@ export function buildLayout(options) {
     barHeight = 96,
     showMark = false,
     markText = "4-7",
+    customTeam = null,
   } = options;
 
-  const team = teamByID(teamID);
+  // A custom team replaces the preset: its own name, name colour and bar
+  // colour, with none of the preset stripes, bands or outlines.
+  const team = customTeam
+    ? {
+        id: (customTeam.name || "").trim().toUpperCase() || "TEAM",
+        color: customTeam.textColor,
+        barFill: customTeam.barColor,
+      }
+    : teamByID(teamID);
   const maxHeight = COL_W * MAX_HEIGHT_RATIO;
   const nameText = (name || "").trim().toUpperCase() || "NAME'S";
 

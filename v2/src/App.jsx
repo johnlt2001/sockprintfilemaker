@@ -20,6 +20,10 @@ const INITIAL = {
   barHeight: 96,
   showMark: false,
   checkerboard: false,
+  custom: false,
+  customName: "",
+  customTextColor: "#FFFFFF",
+  customBarColor: "#DA291C",
 };
 
 export default function App() {
@@ -56,6 +60,13 @@ export default function App() {
       teamGap: state.teamGap,
       barHeight: state.barHeight,
       showMark: state.showMark,
+      customTeam: state.custom
+        ? {
+            name: state.customName,
+            textColor: state.customTextColor,
+            barColor: state.customBarColor,
+          }
+        : null,
     });
   }, [
     fontReady,
@@ -68,6 +79,10 @@ export default function App() {
     state.teamGap,
     state.barHeight,
     state.showMark,
+    state.custom,
+    state.customName,
+    state.customTextColor,
+    state.customBarColor,
   ]);
 
   const displayName = state.name.trim().toUpperCase() || "NAME'S";
@@ -87,7 +102,11 @@ export default function App() {
   const handlePng = () =>
     run(() =>
       exportPng(svgRef.current, {
-        fileName: safeFileName(displayName, state.teamID, "png"),
+        fileName: safeFileName(
+          displayName,
+          state.custom ? state.customName || "TEAM" : state.teamID,
+          "png"
+        ),
         familyID: state.fontID,
         scale: 2,
       })

@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { FONTS } from "./fonts";
-import { TEAMS } from "./teams";
+import { TEAMS, teamByID } from "./teams";
 
 function Slider({ label, value, onChange, min, max, step, format }) {
   return (
@@ -20,11 +21,59 @@ function Slider({ label, value, onChange, min, max, step, format }) {
   );
 }
 
+function ColorField({ label, value, onChange }) {
+  // The hex box keeps its own draft so half-typed values are allowed.
+  const [draft, setDraft] = useState(value);
+  useEffect(() => setDraft(value), [value]);
+
+  return (
+    <label className="control">
+      <span className="control-label">
+        {label}
+        <em>{value.toUpperCase()}</em>
+      </span>
+      <div className="color-row">
+        <input
+          type="color"
+          className="color-input"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+        <input
+          type="text"
+          className="text-input"
+          value={draft}
+          maxLength={7}
+          onChange={(e) => {
+            const v = e.target.value.trim();
+            setDraft(v);
+            if (/^#[0-9a-f]{6}$/i.test(v)) onChange(v.toUpperCase());
+          }}
+        />
+      </div>
+    </label>
+  );
+}
+
 const percent = (v) => `${Math.round(v * 100)}%`;
 const px = (v) => `${Math.round(v)}px`;
 
 export default function Controls({ state, set, onReset, onExportPng, busy }) {
   const font = FONTS.find((f) => f.id === state.fontID);
+
+  // Opening the custom options starts from the selected team, so you only
+  // change what you need to.
+  const openCustom = () => {
+    const team = teamByID(state.teamID);
+    const solid = (c) => (/^#[0-9a-f]{6}$/i.test(c || "") ? c : null);
+    set({
+      custom: true,
+      customName: state.customName || team.id,
+      customTextColor: solid(team.textFill) || solid(team.color) || "#FFFFFF",
+      customBarColor:
+        solid(team.barFill) || solid(team.color) || "#DA291C",
+    });
+  };
 
   return (
     <div className="controls">
@@ -39,20 +88,59 @@ export default function Controls({ state, set, onReset, onExportPng, busy }) {
         />
       </label>
 
-      <label className="control">
-        <span className="control-label">Team</span>
-        <select
-          className="select-input"
-          value={state.teamID}
-          onChange={(e) => set({ teamID: e.target.value })}
-        >
-          {TEAMS.map((team) => (
-            <option key={team.id} value={team.id}>
-              {team.id}
-            </option>
-          ))}
-        </select>
-      </label>
+      {!state.custom && (
+        <label className="control">
+          <span className="control-label">Team</span>
+          <select
+            className="select-input"
+            value={state.teamID}
+            onChange={(e) => set({ teamID: e.target.value })}
+          >
+            {TEAMS.map((team) => (
+              <option key={team.id} value={team.id}>
+                {team.id}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
+
+      {state.custom ? (
+        <div className="custom-panel">
+          <label className="control">
+            <span className="control-label">Team name</span>
+            <input
+              type="text"
+              className="text-input"
+              value={state.customName}
+              placeholder="TEAM"
+              onChange={(e) => set({ customName: e.target.value })}
+            />
+          </label>
+
+          <ColorField
+            label="Team name colour"
+            value={state.customTextColor}
+            onChange={(customTextColor) => set({ customTextColor })}
+          />
+          <ColorField
+            label="Rectangle colour"
+            value={state.customBarColor}
+            onChange={(customBarColor) => set({ customBarColor })}
+          />
+
+          <button
+            className="ghost wide"
+            onClick={() => set({ custom: false })}
+          >
+            Back to team list
+          </button>
+        </div>
+      ) : (
+        <button className="big-button" onClick={openCustom}>
+          + Custom team name &amp; colours
+        </button>
+      )}
 
       <label className="control">
         <span className="control-label">Typeface</span>
