@@ -205,6 +205,48 @@ button.ghost {
   background: transparent;
 }
 
+button.big-button {
+  width: 100%;
+  padding: 16px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1020;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+}
+
+.custom-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+}
+
+button.ghost.wide {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.color-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.color-input {
+  width: 52px;
+  height: 38px;
+  padding: 2px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
 .readout {
   margin: 14px 0 0;
   font-size: 12px;
